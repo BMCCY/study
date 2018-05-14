@@ -64,15 +64,15 @@ html5
             margin-top: -10px;
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            background: #ccc;
+            border-radius: 50%;      //圆的形成 
+            background: #ccc;
             margin-left: -20px;
             color:#fff;
         }
         @-webkit-keyframes circleLoad_1{
             0%,66.66%{
-                background: #ccc;
-            }
+                background: #ccc;   //线条从0到66.66之间颜色都不会发生改变66.66之后开始发生改变，到100的时候为另一个完全的颜色，下面是一样的
+           }
                  100%{
                 background:green;
             }
@@ -101,8 +101,8 @@ html5
                 background:green;
             }
 		}
-        #progressBar span:nth-child(2){
-            left: 0%;background:green;
+        #progressBar span:nth-child(2){   第一个圆圈开始
+            left: 0%;background:green;
         }
         #progressBar span:nth-child(3){
             left: 11%;background:green;
