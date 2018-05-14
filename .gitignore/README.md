@@ -180,4 +180,6 @@ left:38px;
 @keyframes(关键帧)作为CSS3动画的一部分，其该紧跟一个标识符(由开发者自定)，此标识符将在其他CSS代码中引用。在@keyframes和标识符之后，就是一系列的动画规则(就像普通的CSS代码中声明的style规则)了。这一系列动画规则用大括号括起来隔开，然后再嵌在@keyframes之后的大括号里，类似其他@语法规则.
 以楼主贴出的代码为例，前缀(the vendor prefixes)webkit表示这个动画效果只适用于webkit内核的浏览器，labelON就是这个动画里面关键帧的名字(animation-name)。0%和100%表示这个动画从开始到结束，向右移动了38px(top值不变，left值增加到38px)。
 
+进度条的三种方式：https://www.cnblogs.com/iqian/p/6825084.html
+
 
