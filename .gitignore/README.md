@@ -346,5 +346,5 @@ left:38px;
         <div id="fade" class="black_overlay"></div> 
     </body> 
 </html>
-
+jquery实现前台实时显示后台进度；http://www.jb51.net/article/94478.htm
 
