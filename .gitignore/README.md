@@ -366,4 +366,5 @@ jquery实现前台实时显示后台进度；http://www.jb51.net/article/94478.h
 
 
 .xml配置文件详解：https://blog.csdn.net/believejava/article/details/43229361
+关于进度条的插件：http://www.jeasyui.net/plugins/157.html
 
