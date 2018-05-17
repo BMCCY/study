@@ -368,4 +368,197 @@ jquery实现前台实时显示后台进度；http://www.jb51.net/article/94478.h
 .xml配置文件详解：https://blog.csdn.net/believejava/article/details/43229361
 关于进度条的插件：http://www.jeasyui.net/plugins/157.html
 进度条关于后台进程：http://www.jb51.net/article/94478.htm。
+静态进度条显示：
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html> 
+    <head> 
+        <title>点击文字弹出一个DIV层窗口代码</title> 
+        <style> 
+        .black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: black; 
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+        .white_content { 
+            display: none; 
+            position: absolute; 
+            top: 25%; 
+            left: 25%; 
+            width: 55%; 
+            height: 55%; 
+            padding: 20px; 
+            border: 10px solid green; 
+            background-color: white; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+#progressBar{
+            width: 80%;
+            height: 50px;
+            position: relative;
+            margin: 50px 0 0 100px;
+        }
+        #progressBar div{
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            top:50%;
+            left: 0;
+            margin-top:-20px;
+            background: #ccc;
+        }
+        #progressBar div span{
+            position: absolute;
+            display: inline-block;
+            background: green;
+            height: 10px;
+            width: 100%;
+            -webkit-animation:bgLoad 5.5s linear;
+        }
+@-webkit-keyframes bgLoad{
+            0%{
+                width: 0%;
+            }
+            18.18%,27.27%{
+                width:25%;
+            }
+            45.45%,54.54%{
+                width: 50%;
+            }
+            72.72%,81.81%{
+                width: 75%;
+            }
+            100%{
+                width:100%;
+            }
+        }
+#progressBar>span{
+            position: absolute;
+            top:0;
+            margin-top: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ccc;
+            margin-left: -20px;
+            color:#fff;
+        }
+@-webkit-keyframes circleLoad_1{
+            0%,50%{
+                background: #ccc;
+            }
+            100%{
+                background:green;
+            }
+        }
+        @-webkit-keyframes circleLoad_2{
+            0%,60%{
+                background: #ccc;
+            }
+            100%{
+                background:green;
+            }
+        }
+        @-webkit-keyframes circleLoad_3{
+            0%,70%{
+                background: #ccc;
+            }
+            100%{
+                background:green;
+            }
+        }
+        @-webkit-keyframes circleLoad_4{
+            0%,90%{
+                background: #ccc;
+            }
+            100%{
+                background:green;
+            }
+        }
+        #progressBar span:nth-child(2){
+            left: 0%;background:green;
+        }
+        #progressBar span:nth-child(3){
+            left: 25%;background:green;
+            -webkit-animation:circleLoad_1 1.5s ease-in;
+        }
+        #progressBar span:nth-child(4){
+            left: 50%;background:green;
+            -webkit-animation:circleLoad_2 3s ease-in;
+        }
+        #progressBar span:nth-child(5){
+            left: 75%;background:green;
+            -webkit-animation:circleLoad_3 4.5s ease-in;
+        }
+        #progressBar span:nth-child(6){
+            left: 100%;background:green;
+            -webkit-animation:circleLoad_4 6s ease-in;
+        }
+
+#progress{
+            width: 50%;
+            height: 30px;
+            border:1px solid #ccc;
+            border-radius: 15px;
+            margin: 50px 0 0 100px;
+            overflow: hidden;
+            box-shadow: 0 0 5px 0px #ddd inset;
+        }
+        #progress span {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background: #2989d8; /* Old browsers */
+            background: -moz-linear-gradient(45deg, #2989d8 33%, #7db9e8 34%, #7db9e8 59%, #2989d8 60%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left bottom, right top, color-stop(33%,#2989d8), color-stop(34%,#7db9e8), color-stop(59%,#7db9e8), color-stop(60%,#2989d8)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(45deg, #2989d8 33%,#7db9e8 34%,#7db9e8 59%,#2989d8 60%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(45deg, #2989d8 33%,#7db9e8 34%,#7db9e8 59%,#2989d8 60%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(45deg, #2989d8 33%,#7db9e8 34%,#7db9e8 59%,#2989d8 60%); /* IE10+ */
+            background: linear-gradient(45deg, #2989d8 33%,#7db9e8 34%,#7db9e8 59%,#2989d8 60%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#2989d8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            background-size: 60px 30px;
+            text-align: center;
+            color:#fff;
+            -webkit-animation:load 6s ease-in;
+        }
+        @-webkit-keyframes load{
+            0%{
+                width: 0%;
+            }
+            100%{
+                width:100%;
+            }
+        }
+    </style> 
+    </head> 
+    <body> 
+        <p>示例弹出层：<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">请点这里</a></p> 
+        <div id="light" class="white_content">正在巡检..........
+<div id="progress">
+      <span>123</span>
+</div>
+<div id="progressBar">
+      <!-- 进度条 -->
+      <div>
+        <span></span>
+      </div>
+      <!-- 五个圆 -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+ </div> 
+<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">点这里关闭本窗口</a></div> 
+        <div id="fade" class="black_overlay"></div> 
+    </body> 
+</html>
 
